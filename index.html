@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>포켓 타자</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" id="logo" class="logo hoverable" title="메인으로">
+      <span class="logo-ball"></span>
+      <span class="logo-text">포켓 타자</span>
+    </a>
+  </header>
+
+  <main>
+    <section id="mainPage" class="page active">
+      <h1 class="title">포켓몬 이름 타자 게임</h1>
+      <p class="subtitle">화면에 나온 포켓몬 이름을 빠르고 정확하게 입력하세요!</p>
+
+      <div class="select-group">
+        <h2>모드 선택</h2>
+        <div class="options two" id="modeOptions">
+          <button class="option hoverable selected" data-mode="attack">
+            <strong>타임어택</strong>
+            <span>30초 안에 정해진 개수를 모두 입력</span>
+          </button>
+          <button class="option hoverable" data-mode="challenge">
+            <strong>도전</strong>
+            <span>30초 동안 최대한 많이 입력</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="select-group" id="levelGroup">
+        <h2>난이도 선택</h2>
+        <div class="options three" id="levelOptions">
+          <button class="option hoverable lv-easy" data-level="easy">
+            <strong>EASY</strong><span class="lv-desc"></span>
+          </button>
+          <button class="option hoverable lv-normal selected" data-level="normal">
+            <strong>NORMAL</strong><span class="lv-desc"></span>
+          </button>
+          <button class="option hoverable lv-hard" data-level="hard">
+            <strong>HARD</strong><span class="lv-desc"></span>
+          </button>
+        </div>
+      </div>
+
+      <p id="ruleText" class="rule"></p>
+      <button id="startBtn" class="btn hoverable">게임 시작</button>
+      <p id="bestText" class="best"></p>
+    </section>
+
+    <section id="gamePage" class="page">
+      <div class="timer" id="timer">
+        <div class="timer-bar" id="timerBar"></div>
+        <span class="timer-text" id="timerText">30.0</span>
+      </div>
+
+      <div class="game-hud">
+        <span id="modeLabel" class="chip"></span>
+        <span id="progressText" class="progress"></span>
+      </div>
+
+      <div class="play" id="play">
+        <div id="targetName" class="target"></div>
+        <div id="nextName" class="next"></div>
+
+        <div id="typedBox" class="typed">
+          <span id="typedText"></span><span class="caret"></span>
+        </div>
+        <input id="typeInput" type="text" autocomplete="off" autocorrect="off" spellcheck="false" />
+
+        <p id="message" class="message">이름을 입력하고 <b>Enter</b>를 누르세요</p>
+      </div>
+
+      <div id="countdown" class="countdown"></div>
+    </section>
+
+    <section id="resultPage" class="page">
+      <p id="resultMode" class="chip"></p>
+      <h1 id="resultTitle" class="result-title"></h1>
+      <p id="resultSub" class="result-sub"></p>
+
+      <div class="stats">
+        <div class="stat"><span>완료한 이름</span><b id="statCount">0</b></div>
+        <div class="stat"><span id="statTimeLabel">남은 시간</span><b id="statTime">0</b></div>
+        <div class="stat"><span>평균 타수</span><b id="statSpeed">0</b></div>
+        <div class="stat"><span>정확도</span><b id="statAcc">0%</b></div>
+      </div>
+      <p id="resultBest" class="best"></p>
+
+      <div class="result-btns">
+        <button id="retryBtn" class="btn hoverable">다시 하기</button>
+        <button id="homeBtn" class="btn ghost hoverable">메인으로</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
